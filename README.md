@@ -5,6 +5,19 @@
 
 Catatan : Tidak boleh menggunakan crontab.
 
+![1 - shift 2](https://user-images.githubusercontent.com/47876805/54426523-abfac080-474a-11e9-81c3-ba44555f495f.png)
+
+![1 (2) - shift 2](https://user-images.githubusercontent.com/47876805/54426528-aef5b100-474a-11e9-8f03-75fc98b6952d.png)
+
+Penjelasan:
+Apabila dir bernilai null makan akan mereturn 0. Sedangkan jika dir tidak bernilai null maka akan mengcopy nama file dari dalam direktori ke dalam totalfile. Setelah itu mencari string '.' dengan menggunakan strrchr. Lalu, mencopy totalfile ke dalam totalfile2. Jika menemuka file yang dimaksud maka akan menggantikan titik menjadi null setelah itu mencopy totalfile ke hasil dan menggabungkan hasil dengan file2. Lalu, menggabungkan awal dengan totalfile2 dan tujuan dengan hasil. Setelah itu di rename.
+
+Untuk menjalaninya dengan mengetikkan 
+gcc -o soal1 soal1.c
+
+Setelah itu
+./soal1
+
 ### 2.Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
 Catatan: Tidak boleh menggunakan crontab
