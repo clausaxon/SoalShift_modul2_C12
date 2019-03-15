@@ -9,6 +9,8 @@ Catatan : Tidak boleh menggunakan crontab.
 
 Catatan: Tidak boleh menggunakan crontab
 
+![Screenshot from 2019-03-15 19-37-12](https://user-images.githubusercontent.com/34019306/54413701-3cc0a480-4729-11e9-98c2-da0dee5f0794.png)
+
 
 
 3.Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”. 
