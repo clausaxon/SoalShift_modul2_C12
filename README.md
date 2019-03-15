@@ -11,6 +11,14 @@ Catatan: Tidak boleh menggunakan crontab
 
 ![Screenshot from 2019-03-15 19-37-12](https://user-images.githubusercontent.com/34019306/54413701-3cc0a480-4729-11e9-98c2-da0dee5f0794.png)
 
+Jadi kita menggunakan struct stat sb untuk mengakses dan menyimpan name owner dan grup dari data elen.ku.
+struct stat sudah memiliki structnya sendiri dari linux, bisa dilihat di man stat pada terminal.
+
+Lalu kita bikin char untuk menyimpan owner dan grup, dalam codingan ini variablenya simpanpw, dan simpangr.
+
+Lalu saya menggunakan string compare untuk membandingkan owner dan group sebelum diubah menjadi www-data agar jika sudah berubah program bisa menghapus elen.ku dalam waktu 3 detik dengan menggunakan daemon.
+
+Terakhir karena ada masalah permission maka kita harus mengubah aksesnya menjadi 0777 menggunakan chmod, tetapi kita harus mentraslate bentuk 0777(string) menjadi bentuk Oktal menggunakan strtoul.
 
 
 3.Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”. 
@@ -44,6 +52,17 @@ Catatan:
 dilarang menggunakan crontab
 
 Contoh nama file : makan_sehat1.txt, makan_sehat2.txt, dst
+
+![Screenshot from 2019-03-15 19-49-06](https://user-images.githubusercontent.com/34019306/54413845-c1132780-4729-11e9-835c-f5fb04ce8757.png)
+
+Pertama kita harus mengambil data local time dengan menggunakan struct stat. bisa dilihat di man stat
+
+Lalu kita harus membandingkan waktu saat pertama kali makan_enak dibuka dengan local time. dikasus ini saya menggunakan difftime untuk menghitung perbedaan waktu dengan basis  detik.
+
+Lalu kita gunakan if, jika memang benar jarak waktu kurang dari 30 maka kita akan membuat file makan_sehat dengan fungsi creat(filename,mode);
+
+lalu menggunakan daemon untuk terus berjalan tiap 5 detik dalam membuat file makan_sehat hingga terbentuk kurang lebih 6 file yang berurutan.
+
 
 5.Kerjakan poin a dan b di bawah:
 Buatlah program c untuk mencatat log setiap menit dari file log pada syslog ke /home/[user]/log/[dd:MM:yyyy-hh:mm]/log#.log
