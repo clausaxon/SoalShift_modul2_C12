@@ -21,6 +21,8 @@ Lalu saya menggunakan string compare untuk membandingkan owner dan group sebelum
 Terakhir karena ada masalah permission maka kita harus mengubah aksesnya menjadi 0777 menggunakan chmod, tetapi kita harus mentraslate bentuk 0777(string) menjadi bentuk Oktal menggunakan strtoul.
 
 
+
+
 3.Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”. 
 Buatlah program C yang dapat :
 
@@ -62,6 +64,10 @@ Lalu kita harus membandingkan waktu saat pertama kali makan_enak dibuka dengan l
 Lalu kita gunakan if, jika memang benar jarak waktu kurang dari 30 maka kita akan membuat file makan_sehat dengan fungsi creat(filename,mode);
 
 lalu menggunakan daemon untuk terus berjalan tiap 5 detik dalam membuat file makan_sehat hingga terbentuk kurang lebih 6 file yang berurutan.
+
+
+
+
 
 
 5.Kerjakan poin a dan b di bawah:
