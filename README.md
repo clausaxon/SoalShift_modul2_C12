@@ -101,6 +101,10 @@ NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan pr
 
 Link sumber buat pengerjaan soal :
 
+soal 1
+
+https://www.sanfoundry.com/c-program-list-files-directory/
+
 soal 2
 
 https://stackoverflow.com/questions/36069748/c-get-owner-and-group-of-file-directory
