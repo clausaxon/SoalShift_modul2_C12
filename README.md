@@ -138,8 +138,18 @@ fclose(write);
     
 •	Untuk menjalaninya ketik gcc –o soal5a soal5a.c, lalu ketik ./soal5a
 •	Hasilnya seperti ini, namun saya mengganti sleep menjadi 1 detik:
+
+![image](https://user-images.githubusercontent.com/47876805/54863906-2d70d500-4d81-11e9-8926-a13930861379.png)
+
+•	Isi dari folder tersebut:
+
+![image](https://user-images.githubusercontent.com/47876805/54863911-319cf280-4d81-11e9-99eb-decd6f6a7f14.png)
+
 •	Berikut adalah foto dari kodingan no 5a:
 
+![image](https://user-images.githubusercontent.com/47876805/54863912-35c91000-4d81-11e9-846e-acdf61cf091a.png)
+
+![image](https://user-images.githubusercontent.com/47876805/54863914-3c578780-4d81-11e9-9bab-51edced13494.png)
 
 Buatlah program c untuk menghentikan program di atas.
 
@@ -149,7 +159,7 @@ NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan pr
 •	Untuk menjalankannya ketik gcc –o soal5b soal5b.c, lalu ketik ./soal5b. 
 •	Berikut adalah foto kodingan dari 5b:
 
-
+![image](https://user-images.githubusercontent.com/47876805/54863916-3feb0e80-4d81-11e9-89ea-76a29fbf8e28.png)
 
 
 Link sumber buat pengerjaan soal :
