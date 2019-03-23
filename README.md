@@ -5,10 +5,6 @@
 
 Catatan : Tidak boleh menggunakan crontab.
 
-![1 - shift 2](https://user-images.githubusercontent.com/47876805/54426523-abfac080-474a-11e9-81c3-ba44555f495f.png)
-
-![1 (2) - shift 2](https://user-images.githubusercontent.com/47876805/54426528-aef5b100-474a-11e9-8f03-75fc98b6952d.png)
-
 •	Membuat array of character bernama totalfile (nama file lengkap), hasil, totalfile2 (hasil copy dari totalfile), dan file2 yag berisi “_grey.png”. 
 
 char totalfile[100];
@@ -54,6 +50,11 @@ gcc -o soal1 soal1.c
 •	Setelah itu ketik
 ./soal1
 
+•	Berikut adalah foto dari no 1:
+
+![1 - shift 2](https://user-images.githubusercontent.com/47876805/54426523-abfac080-474a-11e9-81c3-ba44555f495f.png)
+
+![1 (2) - shift 2](https://user-images.githubusercontent.com/47876805/54426528-aef5b100-474a-11e9-8f03-75fc98b6952d.png)
 
 ### 2.Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
