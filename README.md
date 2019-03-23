@@ -9,14 +9,51 @@ Catatan : Tidak boleh menggunakan crontab.
 
 ![1 (2) - shift 2](https://user-images.githubusercontent.com/47876805/54426528-aef5b100-474a-11e9-8f03-75fc98b6952d.png)
 
-Penjelasan:
-Apabila dir bernilai null makan akan mereturn 0. Sedangkan jika dir tidak bernilai null maka akan mengcopy nama file dari dalam direktori ke dalam totalfile. Setelah itu mencari string '.' dengan menggunakan strrchr. Lalu, mencopy totalfile ke dalam totalfile2. Jika menemuka file yang dimaksud maka akan menggantikan titik menjadi null setelah itu mencopy totalfile ke hasil dan menggabungkan hasil dengan file2. Lalu, menggabungkan awal dengan totalfile2 dan tujuan dengan hasil. Setelah itu di rename.
+•	Membuat array of character bernama totalfile (nama file lengkap), hasil, totalfile2 (hasil copy dari totalfile), dan file2 yag berisi “_grey.png”. 
 
-Untuk menjalaninya dengan mengetikkan 
+char totalfile[100];
+char hasil[100];
+char totalfile2[100];
+char file2[100] = “_grey.png”;
+char *file;
+
+•	Digunakan untuk membuka direkori dan membaca file.
+
+dir *dir = opendir(“/home/hayu/modul2/soal1”);
+struct dirent *d;
+
+•	Jika dir kosong maka akan return 0.
+
+if(dir == NULL)
+    return 0;
+
+•	Tetapi jika tidak kosong, maka akan mengambil nama file dari direktori dan di copy ke totalfile. Setelah itu, alamat dari titik yang berada di totalfile akan disimpan di file. Setelah itu, mengcopy dari totalfile ke totalfile2.
+
+while((d = readdir(dir)) != NULL) {
+   strcpy(totalfile, d->d_name);
+   file = strrchr(totalfile, ‘.’);
+   strcpy(totalfile2, totalfile);
+
+
+•	Jika isi dari file sama dengan “.png”, menggantikan posisi titik dengan ‘\0’. Lalu, mengcopy totalfile ke hasil dan menggabungkan hasil dengan file2. Setelah itu, menggabungkan awal dengan totalfile2 dan tujuan dengan hasil. Melakukan rename.
+
+if(file && (strcmp(file, “.png”)==0)){
+   *file = ‘\0’;
+   strcpy(hasil, totalfile);
+   strcat(hasil, file2);
+   char awal[500] = (“/home/hayu/modul2/soal1/”);
+   char tujuan[500] = (“/home/hayu/modul2/soal1/gambar/”);
+   strcat(awal, totalfile2);
+   strcat(tujuan, hasil);
+   rename(awal, tujuan);
+}
+
+•	Untuk menjalaninya dengan mengetikkan 
 gcc -o soal1 soal1.c
 
-Setelah itu
+•	Setelah itu ketik
 ./soal1
+
 
 ### 2.Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
