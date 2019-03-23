@@ -94,9 +94,62 @@ Per menit memasukkan log#.log ke dalam folder tersebut
 
 ‘#’ : increment per menit. Mulai dari 1
 
+•	Variabel timenow akan dimasukkan kedalam time, dimana time sudah ke set di system. Namun time masih menggunakan waktu internasional, maka diubah menjadi localtime.
+
+struct tm *currtime;
+time_t timenow;
+time(&timenow);
+currtime = localtime(&timenow);
+
+•	Membuat array of character bernama folder dan path yang akan berisi “/home/hayu/log/”.
+
+char folder[50];
+char path[100];
+strcpy(path, "/home/hayu/log/");
+
+•	Kemudian simpan hari, bulan, tahun, jam, dan menit didalam array of char yang bernama folder. Setelah itu, folder akan print dalam bentuk string. Lalu, menggabungkan path dengan folder. Kemudian, membuat folder. Maksud dari S_IRWXU | S_IRWXO | S_IRWXG adalah read, write dan execute permission bagi user, owner, dan group.
+
+sprintf(folder, "%02d:%02d:%02d-%02d:%02d", currtime->tm_mday, currtime->tm_mon + 1, currtime->tm_year + 1900, currtime->tm_hour, currtime->tm_min);
+strcat(path, folder);
+mkdir(path, S_IRWXU | S_IRWXO | S_IRWXG);
+
+•	Membuat loop agar dalam 30 menit akan terbentuk 1 folder log dengan isi 30 file log. Setelah itu, membuat file read dan write. File read gunanya untuk melakukan read dari syslog yang berada di “/var/log/syslog”, sedangkan file write gunanya untuk melakukan write dari file yang akan dilakukan setelah kita menyimpan “%s/log%d.log” dimana %s akan diisi path dan %d akan diisi i+1, yang awalnya I adalah 0. Kemudian print. 
+
+for(int i=0; i<30; i++){
+char file[100];
+char c;
+char syslog[100] = "/var/log/syslog";
+FILE *read = fopen(syslog, "r");
+sprintf(file, "%s/log%d.log", path, i+1);
+FILE *write = fopen(file, "w+");
+
+•	Selama read dan write masih ada isinya, maka akan melakukan print syslog ke file log. Lalu, sleep(60) adalah perintah untuk membuat file setiap menit (60 detik).
+
+if(read != NULL && write != NULL){
+while((c = fgetc(read))  != EOF){
+fputc(c, write);
+}
+fclose(write);
+      fclose(read);
+            }
+      sleep(60);
+        }
+    }
+    
+•	Untuk menjalaninya ketik gcc –o soal5a soal5a.c, lalu ketik ./soal5a
+•	Hasilnya seperti ini, namun saya mengganti sleep menjadi 1 detik:
+•	Berikut adalah foto dari kodingan no 5a:
+
+
 Buatlah program c untuk menghentikan program di atas.
 
 NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan program.
+
+•	Maksud dari kodingan diatas adalah mengimplementasikan bash pkill soal5a dalam bahasa C.
+•	Untuk menjalankannya ketik gcc –o soal5b soal5b.c, lalu ketik ./soal5b. 
+•	Berikut adalah foto kodingan dari 5b:
+
+
 
 
 Link sumber buat pengerjaan soal :
