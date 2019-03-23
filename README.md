@@ -88,7 +88,7 @@ Buatlah program c untuk mencatat log setiap menit dari file log pada syslog ke /
 
 Ket:
 
-Per 30 menit membuat folder /[dd:MM:yyyy-hh:mm]
+a. Per 30 menit membuat folder /[dd:MM:yyyy-hh:mm]
 
 Per menit memasukkan log#.log ke dalam folder tersebut
 
@@ -151,7 +151,7 @@ fclose(write);
 
 ![image](https://user-images.githubusercontent.com/47876805/54863914-3c578780-4d81-11e9-9bab-51edced13494.png)
 
-Buatlah program c untuk menghentikan program di atas.
+b. Buatlah program c untuk menghentikan program di atas.
 
 NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan program.
 
